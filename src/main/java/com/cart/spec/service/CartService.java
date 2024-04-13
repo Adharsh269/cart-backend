@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.cart.spec.entity.CartEntity;
 import com.cart.spec.entity.LoginEntity;
+import com.cart.spec.entity.ProductsEntity;
 import com.cart.spec.repo.CartRepo;
 import com.cart.spec.repo.LoginRepo;
+import com.cart.spec.repo.ProductRepo;
 
 @Service
 public class CartService {
@@ -19,14 +21,17 @@ public class CartService {
 	@Autowired
 	LoginRepo userRepo;
 	
+	@Autowired
+	ProductRepo prd;
+	
 	public List<CartEntity> addnewProduct(List<CartEntity> cr){
 		return crepo.saveAll(cr);
 	}
 	 public List<CartEntity> getItems() {
 	        return crepo.findAll();
 	  }
-	 public List<LoginEntity> addUser(List<LoginEntity> user ){
-		 return userRepo.saveAll(user);
+	 public List<LoginEntity> addUser(List<LoginEntity> lguser ){
+		 return userRepo.saveAll(lguser);
 	 }
 	 
 	 public List<LoginEntity> getUser(){
@@ -44,5 +49,14 @@ public class CartService {
 			
 			return "failure";
 	}
+	 
+	 
+	 public List<ProductsEntity> addPro(List<ProductsEntity> por ){
+		 return prd.saveAll(por);
+	 }
+	 
+	 public List<ProductsEntity> getProducts(){
+		 return prd.findAll();
+	 }
 	
 }

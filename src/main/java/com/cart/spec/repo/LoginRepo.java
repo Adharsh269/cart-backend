@@ -6,6 +6,6 @@ import com.cart.spec.entity.LoginEntity;
 
 public interface LoginRepo extends JpaRepository<LoginEntity, String> {
 
-	LoginEntity findByUsername(String name);
+	LoginEntity findByUsername(String username);
 
 }

@@ -4,18 +4,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class CartEntity {
-	
+public class ProductsEntity {
 	@Id
 	private String itemName;
 	private String quantity;
 	private int price;
 	private String url;
-	public CartEntity() {
+	public ProductsEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CartEntity(String itemName, String quantity,int price,String url) {
+	public ProductsEntity(String itemName, String quantity,int price,String url) {
 		super();
 		this.itemName = itemName;
 		this.quantity=quantity;
@@ -47,5 +46,5 @@ public class CartEntity {
 		this.quantity = quantity;
 	}
 	
-	
+
 }

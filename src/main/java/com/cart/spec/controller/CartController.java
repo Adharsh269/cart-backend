@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cart.spec.entity.CartEntity;
 import com.cart.spec.entity.LoginEntity;
+import com.cart.spec.entity.ProductsEntity;
 import com.cart.spec.service.CartService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,11 +48,20 @@ public class CartController {
 	
 	
 	@GetMapping("/user/login")
-	public String checkLogin(@RequestParam String name,String password) {
-		
-		return cser.checkIsValidUser(name,password);
-		
-		
+	public String checkLogin(@RequestParam String username,@RequestParam String password) {
+		return cser.checkIsValidUser(username,password);
+	
+	}
+	
+	
+	@PostMapping("/add/pro")
+	public List<ProductsEntity> postProduct(@RequestBody List<ProductsEntity>  p){
+		return cser.addPro(p);
+	}
+	
+	@GetMapping("/get/prd")
+	public List<ProductsEntity> getProducts(){
+		return cser.getProducts();
 	}
 	
 }
